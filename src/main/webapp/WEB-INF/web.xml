@@ -57,4 +57,9 @@
         <servlet-name>chapter4</servlet-name>
     </filter-mapping>
 
+
+    <servlet>
+        <servlet-name>forwardingServlet</servlet-name>
+        <servlet-class>com.i2bgod.test.web.servlet.ForwardingServlet</servlet-class>
+    </servlet>r
 </web-app>
