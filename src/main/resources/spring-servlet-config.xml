@@ -15,5 +15,23 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
-    <bean name="/hello" class="com.i2bgod.test.web.controller.HelloWorldController"></bean>
+    <!--<bean name="/hello" class="com.i2bgod.test.web.controller.HelloWorldController"></bean>-->
+    <bean name="/hello" class="com.i2bgod.test.web.controller.HelloWorldAbstractController"></bean>
+    <bean name="/hello2" class="com.i2bgod.test.web.controller.HelloWorldWIthoutReturnModelAndViewAbstractController"></bean>
+
+    <bean name="/helloWithPost" class="com.i2bgod.test.web.controller.HelloWorldWIthoutReturnModelAndViewAbstractController">
+        <property name="supportedMethods" value="POST"></property>
+    </bean>
+
+    <bean name="/helloRequireSession" class="com.i2bgod.test.web.controller.HelloWorldWIthoutReturnModelAndViewAbstractController">
+        <property name="requireSession" value="true"></property>
+    </bean>
+
+
+    <bean name="/helloCache" class="com.i2bgod.test.web.controller.HelloWorldCacheAbstractController">
+        <property name="cacheSeconds" value="5"></property>
+    </bean>
+
+    <bean name="/helloLastModifiedCache" class="com.i2bgod.test.web.controller.HelloWorldLastModifiedCacheAbstractController">
+    </bean>
 </beans>

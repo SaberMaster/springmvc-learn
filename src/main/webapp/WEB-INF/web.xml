@@ -19,7 +19,7 @@
     </filter>
 
   <servlet>
-    <servlet-name>chapter2</servlet-name>
+    <servlet-name>chapter4</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
       <!--init dispatcherServlet context(web components)-->
@@ -30,21 +30,31 @@
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>chapter2</servlet-name>
+    <servlet-name>chapter4</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
     <!--init spring context(without web components)-->
-    <!--<context-param>-->
-        <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>-->
-            <!--classpath:spring-common-config.xml,-->
-            <!--classpath:spring-budget-config.xml-->
-        <!--</param-value>-->
-    <!--</context-param>-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:spring-config.xml
+        </param-value>
+    </context-param>
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+
+    <filter>
+        <filter-name>etagHeaderFilter</filter-name>
+        <filter-class>org.springframework.web.filter.ShallowEtagHeaderFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>etagHeaderFilter</filter-name>
+        <servlet-name>chapter4</servlet-name>
+    </filter-mapping>
 
 </web-app>
