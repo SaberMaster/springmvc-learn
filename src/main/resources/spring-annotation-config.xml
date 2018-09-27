@@ -7,9 +7,31 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
     <!--handler adapter-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="webBindingInitializer">
-            <bean class="com.i2bgod.test.web.controller.support.initializer.MyWebBindingInitializer"></bean>
+        <property name="webBindingInitializer" ref="webBindingInitializer"></property>
+
+    </bean>
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+        <!--<property name="webBindingInitializer">-->
+            <!--<bean class="com.i2bgod.test.web.controller.support.initializer.MyWebBindingInitializer"></bean>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+   <!--webbindinginit -->
+    <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer" id="webBindingInitializer">
+        <property name="conversionService" ref="conversionService"></property>
+    </bean>
+
+    <!--convert service-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+           <list>
+               <bean class="com.i2bgod.test.web.controller.support.converter.StringToPhoneNumberConverter"></bean>
+               <bean class="com.i2bgod.test.web.controller.support.converter.StringToDateConverter">
+                   <constructor-arg value="yyyy-MM-dd"></constructor-arg>
+               </bean>
+           </list>
         </property>
+
     </bean>
 
     <!--view resolver-->
