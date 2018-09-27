@@ -61,5 +61,5 @@
     <servlet>
         <servlet-name>forwardingServlet</servlet-name>
         <servlet-class>com.i2bgod.test.web.servlet.ForwardingServlet</servlet-class>
-    </servlet>r
+    </servlet>
 </web-app>
