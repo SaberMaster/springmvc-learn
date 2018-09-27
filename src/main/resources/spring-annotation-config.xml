@@ -6,7 +6,11 @@
     <!--handler mapping-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
     <!--handler adapter-->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="webBindingInitializer">
+            <bean class="com.i2bgod.test.web.controller.support.initializer.MyWebBindingInitializer"></bean>
+        </property>
+    </bean>
 
     <!--view resolver-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

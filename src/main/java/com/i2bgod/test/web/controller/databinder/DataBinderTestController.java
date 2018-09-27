@@ -25,14 +25,14 @@ public class DataBinderTestController {
         model.addAttribute("command", model);
         return "user";
     }
-
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        // custom property binder
-        // date
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        CustomDateEditor customDateEditor = new CustomDateEditor(df, true);
-        binder.registerCustomEditor(Date.class, customDateEditor);
-        binder.registerCustomEditor(PhoneNumberModel.class, new PhoneNumberModelErrorEditor());
-    }
+//
+//    @InitBinder
+//    public void initBinder(WebDataBinder binder) {
+//        // custom property binder
+//        // date
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        CustomDateEditor customDateEditor = new CustomDateEditor(df, true);
+//        binder.registerCustomEditor(Date.class, customDateEditor);
+//        binder.registerCustomEditor(PhoneNumberModel.class, new PhoneNumberModelErrorEditor());
+//    }
 }
