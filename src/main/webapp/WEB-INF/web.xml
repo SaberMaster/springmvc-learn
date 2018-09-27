@@ -25,7 +25,10 @@
       <!--init dispatcherServlet context(web components)-->
       <init-param>
           <param-name>contextConfigLocation</param-name>
-          <param-value>classpath:spring-servlet-config.xml</param-value>
+          <param-value>
+              <!--classpath:spring-servlet-config.xml-->
+              classpath:spring-annotation-config.xml
+          </param-value>
       </init-param>
   </servlet>
 
